@@ -7,6 +7,7 @@
 // Needs STRIPE_SECRET_KEY set in the Netlify environment.
 
 const PRICE_CENTS = 1900; // $19.00
+const STRIPE_PRODUCT_ID = 'prod_UvIzd7Mw1XjZaM'; // "MA Ahead Blueprint" in the Stripe dashboard
 
 exports.handler = async function (event) {
   if (event.httpMethod !== 'POST') {
@@ -38,8 +39,7 @@ exports.handler = async function (event) {
   params.append('line_items[0][quantity]', '1');
   params.append('line_items[0][price_data][currency]', 'usd');
   params.append('line_items[0][price_data][unit_amount]', String(PRICE_CENTS));
-  params.append('line_items[0][price_data][product_data][name]', 'MA Ahead Blueprint');
-  params.append('line_items[0][price_data][product_data][description]', 'Your personal MA career and cost-of-living Blueprint PDF.');
+  params.append('line_items[0][price_data][product]', STRIPE_PRODUCT_ID);
   params.append('success_url', `${origin}/blueprint.html?session_id={CHECKOUT_SESSION_ID}`);
   params.append('cancel_url', `${origin}/#step-blueprint`);
 
