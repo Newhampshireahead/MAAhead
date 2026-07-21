@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA Ahead — Your future, added up</title>
+<meta name="description" content="A free, honest tool for Massachusetts: pick where you'll live, build your budget, see the salary you'd need, and find MA careers that fit.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MA Ahead — Your future, added up">
+<meta property="og:description" content="A free, honest tool for Massachusetts: pick where you'll live, build your budget, see the salary you'd need, and find MA careers that fit.">
+<meta property="og:url" content="https://maahead.com/">
+<meta property="og:image" content="https://maahead.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MA Ahead — Your future, added up">
+<meta name="twitter:description" content="A free, honest tool for Massachusetts: pick where you'll live, build your budget, see the salary you'd need, and find MA careers that fit.">
+<meta name="twitter:image" content="https://maahead.com/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <a href="index.html" class="wordmark">MA <span>Ahead</span></a>
+    <span class="topbar-tag">Your Life. Your Plan.</span>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="topo" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#fbfcfa" stroke-width="1.5">
+      <path d="M-50,420 C200,360 380,470 600,400 C820,330 980,440 1250,380"/>
+      <path d="M-50,360 C200,300 380,410 600,340 C820,270 980,380 1250,320"/>
+      <path d="M-50,300 C220,250 380,350 600,285 C830,220 980,320 1250,262"/>
+      <path d="M-50,242 C230,200 390,295 600,232 C840,170 990,265 1250,208"/>
+      <path d="M-50,186 C240,150 400,238 600,182 C850,128 1000,212 1250,158"/>
+      <path d="M-50,134 C250,104 410,184 600,134 C860,86 1010,162 1250,112"/>
+      <path d="M-50,86 C260,62 420,134 600,90 C870,48 1020,116 1250,70"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Real Massachusetts numbers</div>
+    <h1>Your future. Let's see how it <em>adds up</em>.</h1>
+    <p class="hero-sub">Pick where you'd live, build your real monthly budget, and find out the salary it actually takes, then see MA careers that get you there.</p>
+    <a class="hero-cta" href="#step-region">Start with where you'll live &rarr;</a>
+    <p class="hero-trust">No account. Nothing saved. Just you and the numbers.</p>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+
+    <section class="step" id="step-region">
+      <div class="step-head"><span class="step-num">01</span><h2>Where you'll live</h2></div>
+      <p class="step-sub">Cost of living swings a lot across Massachusetts. Start with a region and we'll scale housing to match.</p>
+      <div class="region-grid" id="regionGrid"></div>
+    </section>
+
+    <section class="step" id="step-bills">
+      <div class="step-head"><span class="step-num">02</span><h2>Build your life</h2></div>
+      <p class="step-sub">Pick the option that sounds like the life you actually want. Every choice updates your number, live.</p>
+      <div id="groupsContainer"></div>
+    </section>
+
+    <section class="step" id="step-number">
+      <div class="step-head"><span class="step-num">03</span><h2>Your number</h2></div>
+      <div class="number-panel">
+        <svg class="topo" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#fbfcfa" stroke-width="1.4">
+            <path d="M-20,300 C160,260 320,330 480,290 C640,250 760,320 940,280"/>
+            <path d="M-20,250 C160,212 320,280 480,240 C640,200 760,268 940,228"/>
+            <path d="M-20,200 C170,166 330,228 480,190 C650,150 770,212 940,176"/>
+            <path d="M-20,150 C180,118 340,176 480,140 C660,100 780,158 940,124"/>
+            <path d="M-20,102 C190,74 350,128 480,92 C670,54 790,108 940,76"/>
+          </g>
+        </svg>
+        <div class="number-row">
+          <span>Monthly cost of living, <span id="regionLabelInline">Lakes Region</span></span>
+          <span class="figure mono" id="monthlyTotal">$0</span>
+        </div>
+        <div class="number-big">
+          <span class="label">The salary you'd need to make this work</span>
+          <span class="big-figure mono" id="salaryNeeded">$0</span>
+          <span class="sublabel">gross, before taxes. Grosses up for federal tax, FICA, and Massachusetts' flat 5% state income tax.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="step" id="step-careers">
+      <div class="step-head"><span class="step-num">04</span><h2>Careers that fit</h2></div>
+      <p class="step-sub">Real MA wages, compared to the number you just built. See what covers it and what falls short.</p>
+      <div class="careers-controls">
+        <button class="filter-pill active" data-filter="all">All paths</button>
+        <button class="filter-pill" data-filter="noDegree">No degree needed</button>
+        <button class="filter-pill" data-filter="twoYear">2-year degree</button>
+        <button class="filter-pill" data-filter="fourPlus">4-year+</button>
+        <button class="filter-pill" data-filter="grad">Advanced / grad</button>
+        <div class="auto-toggle">
+          <span>Fold each career's own student loan in automatically</span>
+          <button class="switch" id="autoLoanSwitch" aria-pressed="false"></button>
+        </div>
+      </div>
+      <div class="careers-grid" id="careersGrid"></div>
+      <div class="career-hook">
+        <p><b>You've seen which paths fit and pay.</b> Your matches also point to specific training programs across New England, and a tuition-break route Massachusetts residents can use to save around $8,500 a year on an out-of-state public college. Your Blueprint shows you exactly where to study, and how to pay less.
+        <a class="ch-link" href="#step-blueprint">See your Blueprint &darr;</a></p>
+      </div>
+      <div class="data-attribution">Wage data from <a href="https://www.careeronestop.org" target="_blank" rel="noopener">CareerOneStop</a>, sponsored by the U.S. Department of Labor.</div>
+    </section>
+
+    <section class="step" id="step-blueprint">
+      <div class="blueprint-card">
+        <svg class="topo" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#fbfcfa" stroke-width="1.4">
+            <path d="M-20,300 C160,260 320,330 480,290 C640,250 760,320 940,280"/>
+            <path d="M-20,250 C160,212 320,280 480,240 C640,200 760,268 940,228"/>
+            <path d="M-20,200 C170,166 330,228 480,190 C650,150 770,212 940,176"/>
+            <path d="M-20,150 C180,118 340,176 480,140 C660,100 780,158 940,124"/>
+            <path d="M-20,102 C190,74 350,128 480,92 C670,54 790,108 940,76"/>
+          </g>
+        </svg>
+        <div class="bp-inner">
+          <h2>Get your personal Blueprint</h2>
+          <p>A one-time PDF built from your exact numbers: your strengths, your matched careers, real MA schools and what they actually cost, and an honest read on the levers that move your number most.</p>
+          <ul class="bp-list">
+            <li>Your interests and strengths, in plain language</li>
+            <li>The life you built and the salary it needs</li>
+            <li>Your top MA career matches, with real pay and training paths</li>
+            <li>A faster-start path vs. a bigger-ceiling path, compared with real numbers</li>
+            <li>Real MA schools for your matches, with tuition, average cost after aid, and typical debt</li>
+            <li>Financial-aid resources, including a tuition break many families miss</li>
+            <li>An honest read on the trade-offs, plus concrete next steps</li>
+          </ul>
+          <div class="bp-price mono">$19</div>
+          <div class="bp-price-sub">One-time. No account, no subscription.</div>
+          <button class="cta" id="blueprintCta">Get my Blueprint</button>
+          <p class="bp-reassure">No upsell after. One plan, one price.</p>
+          <p class="bp-sample"><a href="sample-blueprint.pdf" target="_blank" rel="noopener">See a real sample Blueprint (PDF) &rarr;</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="share-block">
+      <div class="share-text">
+        <h3>Know someone this could help?</h3>
+        <p>Share MA Ahead with a friend, a parent, or your school counselor.</p>
+      </div>
+      <div class="share-actions">
+        <button class="share-btn" id="shareBtn">Share &rarr;</button>
+        <button class="share-btn share-copy" id="copyLinkBtn">Copy link</button>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div>&copy; 2026 MA Ahead. Estimates, not promises.</div>
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</footer>
+
+<div class="bottom-bar">
+  <div class="container">
+    <div class="bb-item">
+      <span class="bb-label">Region</span>
+      <span class="bb-value" id="bbRegion">Lakes Region</span>
+    </div>
+    <div class="bb-item">
+      <span class="bb-label">Monthly</span>
+      <span class="bb-value mono" id="bbMonthly">$0</span>
+    </div>
+    <div class="bb-item bb-salary">
+      <span class="bb-label">Salary needed</span>
+      <span class="bb-value mono" id="bbSalary">$0</span>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blueprint.html
+
+Sitemap: https://maahead.com/sitemap.xml

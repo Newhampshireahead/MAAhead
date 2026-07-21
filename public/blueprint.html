@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Blueprint — MA Ahead</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <a href="index.html" class="wordmark">MA <span>Ahead</span></a>
+    <span class="topbar-tag">Your Life. Your Plan.</span>
+  </div>
+</header>
+
+<main>
+  <div class="container bp-page-inner">
+
+    <div id="stateVerifying" class="bp-state">
+      <div class="verify-card">
+        <div class="verify-spinner"></div>
+        <p class="bp-state-title">Verifying your purchase&hellip;</p>
+        <p class="bp-state-sub">Hang tight, this only takes a second.</p>
+      </div>
+    </div>
+
+    <div id="stateError" class="bp-state" hidden>
+      <div class="error-card">
+        <div class="error-icon">!</div>
+        <p class="bp-state-title">We couldn't verify a purchase for this link.</p>
+        <p class="bp-state-sub">If you just paid, check your email for the correct link, it can take a minute to arrive. If something looks wrong, reach out and we'll sort it out.</p>
+        <a class="cta" href="mailto:charlimccarthylcmhc@gmail.com">Email us</a>
+      </div>
+    </div>
+
+    <div id="stateQuiz" class="bp-state" hidden>
+      <div class="step-head"><h2>What actually interests you?</h2></div>
+      <p class="step-sub">30 quick questions, rate each 1 (strongly dislike) to 5 (strongly like). This shapes which careers your Blueprint leads with.</p>
+      <div class="iq-progress mono" id="iqProgress">0 of 30 answered</div>
+      <div id="iqQuestions"></div>
+      <button class="cta" id="iqSubmit" disabled>See my Blueprint</button>
+    </div>
+
+    <div id="stateDone" class="bp-state" hidden>
+      <div class="done-card">
+        <svg class="topo" viewBox="0 0 900 360" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" stroke="#fbfcfa" stroke-width="1.4">
+            <path d="M-20,300 C160,260 320,330 480,290 C640,250 760,320 940,280"/>
+            <path d="M-20,250 C160,212 320,280 480,240 C640,200 760,268 940,228"/>
+            <path d="M-20,200 C170,166 330,228 480,190 C650,150 770,212 940,176"/>
+            <path d="M-20,150 C180,118 340,176 480,140 C660,100 780,158 940,124"/>
+            <path d="M-20,102 C190,74 350,128 480,92 C670,54 790,108 940,76"/>
+          </g>
+        </svg>
+        <div class="done-inner">
+          <div class="done-check">&#10003;</div>
+          <p class="bp-state-title">Got it. Your Blueprint is on its way.</p>
+          <p class="bp-state-sub">Your interest code</p>
+          <span class="code-pill mono" id="doneCode"></span>
+          <p class="bp-state-sub">We're building your personal PDF right now using everything you just told us. It should land in your inbox within a couple of minutes.</p>
+          <p class="bp-state-sub">Don't see it? Check your spam or promotions folder, and it's worth adding us to your contacts so future emails land where you'll actually see them.</p>
+          <p class="bp-state-sub bp-done-note">No account needed, nothing else to do. You can close this tab any time.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div>&copy; 2026 MA Ahead. Estimates, not promises.</div>
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/interests.js"></script>
+<script src="js/blueprint.js"></script>
+</body>
+</html>
