@@ -29,7 +29,9 @@ exports.handler = async function (event) {
       return respond(200, { paid: false });
     }
 
-    const paid = data.payment_status === 'paid';
+    // Stripe returns 'no_payment_required' instead of 'paid' when a 100%-off
+    // promo code brings the total to $0, that's still a completed checkout.
+    const paid = data.payment_status === 'paid' || data.payment_status === 'no_payment_required';
     return respond(200, { paid });
   } catch (err) {
     const cause = err && err.cause ? ` cause: ${err.cause.code || err.cause.message || err.cause}` : '';
