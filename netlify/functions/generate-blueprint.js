@@ -40,7 +40,11 @@ exports.handler = async function (event) {
     const res = await fetch(url, { headers: { Authorization: `Bearer ${secretKey}` } });
     const session = await res.json();
 
-    if (!res.ok || session.payment_status !== 'paid') {
+    // 'no_payment_required' is what Stripe returns for a $0 total after a
+    // 100%-off promo code, that's still a completed checkout (see the same
+    // fix in verify-purchase.js).
+    const isPaid = session.payment_status === 'paid' || session.payment_status === 'no_payment_required';
+    if (!res.ok || !isPaid) {
       console.error(`generate-blueprint: rejected, session ${sessionId} not paid (status ${res.status})`);
       return respond(402, { error: 'Payment not verified for this session.' });
     }
