@@ -399,7 +399,12 @@ function renderBlueprintHtml(data){
   .strengths .s .h { font-weight:600; color:var(--pine); font-size:0.9rem; }
   .strengths .s .d { font-size:0.8rem; color:var(--slate); }
 
-  .budget { background:var(--mist); border-radius:12px; padding:22px; page-break-inside:avoid; }
+  /* Deliberately not page-break-inside:avoid: this card is often taller
+     than the space left on a page after the heading above it, and forcing
+     the whole thing to stay together pushes it entirely to the next page,
+     leaving a large blank gap. Letting it flow (rows can split across the
+     page break) reads better than a half-empty page. */
+  .budget { background:var(--mist); border-radius:12px; padding:22px; }
   .budget-grid { display:grid; grid-template-columns:1.1fr 0.9fr; gap:22px; align-items:center; }
   .budget .need .lbl { font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); }
   .budget .need .big { font-family:'Space Mono', monospace; font-weight:700; font-size:2.3rem; color:var(--pine); line-height:1; margin:4px 0; }
@@ -519,15 +524,15 @@ function renderBlueprintHtml(data){
   <div class="sec-head-group">
     <div class="eyebrow">The life you built</div>
     <h2>What it costs to live it, in ${region.name}</h2>
-    <div class="budget">
-      <div class="budget-grid">
-        <div class="need">
-          <div class="lbl">You'd need to earn about</div>
-          <div class="big mono">${salaryNeeded ? fmt(salaryNeeded) : '&mdash;'}</div>
-          <div class="sub">a year, or about ${monthlyTotal ? fmt(monthlyTotal) : '&mdash;'} a month, to cover your costs. That already accounts for Massachusetts' flat 5% state income tax.</div>
-        </div>
-        <div class="rows">${budgetRowsHtml}</div>
+  </div>
+  <div class="budget">
+    <div class="budget-grid">
+      <div class="need">
+        <div class="lbl">You'd need to earn about</div>
+        <div class="big mono">${salaryNeeded ? fmt(salaryNeeded) : '&mdash;'}</div>
+        <div class="sub">a year, or about ${monthlyTotal ? fmt(monthlyTotal) : '&mdash;'} a month, to cover your costs. That already accounts for Massachusetts' flat 5% state income tax.</div>
       </div>
+      <div class="rows">${budgetRowsHtml}</div>
     </div>
   </div>
 </section>

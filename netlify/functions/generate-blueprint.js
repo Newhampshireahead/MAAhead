@@ -145,7 +145,7 @@ async function sendBlueprintEmail(toEmail, firstName, pdfBuffer, resendKey){
       subject: 'Your MA Ahead Blueprint is ready',
       html: blueprintEmailHtml(firstName),
       attachments: [{
-        filename: 'nh-ahead-blueprint.pdf',
+        filename: 'ma-ahead-blueprint.pdf',
         content: pdfBuffer.toString('base64'),
         content_type: 'application/pdf',
       }],
