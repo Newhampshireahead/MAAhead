@@ -9,15 +9,15 @@
 const { buildBlueprintData, renderBlueprintHtml } = require('./lib/blueprint.js');
 
 const SAMPLE_BUDGET_STATE = {
-  region: 'lakes',
+  region: 'centralmass',
   selections: {
     rent: 1, heat: 1, power: 1, renters: 1, internet: 1, phone: 2,
     carpay: 1, gas: 2, carins: 1, groceries: 1, eatout: 1,
     healthins: 1, care: 1, savings: 1, studentloans: 0, debt: 0,
     clothing: 1, fun: 1,
   },
-  monthlyTotal: 3420,
-  salaryNeeded: 48857,
+  monthlyTotal: 3693,
+  salaryNeeded: 58305,
 };
 
 exports.handler = async function () {
@@ -50,7 +50,7 @@ exports.handler = async function () {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': 'inline; filename="nh-ahead-sample-blueprint.pdf"',
+        'Content-Disposition': 'inline; filename="ma-ahead-sample-blueprint.pdf"',
       },
       body: buf.toString('base64'),
       isBase64Encoded: true,
