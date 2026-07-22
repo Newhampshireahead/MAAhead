@@ -72,6 +72,27 @@ p{ margin:0; }
   letter-spacing:0.04em;
   text-transform:uppercase;
 }
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+.state-switch{
+  font-family:inherit;
+  font-weight:600;
+  font-size:0.78rem;
+  color:var(--spruce);
+  border:1.5px solid var(--spruce);
+  border-radius:999px;
+  padding:6px 14px;
+  text-decoration:none;
+  white-space:nowrap;
+  transition:background .15s ease, color .15s ease;
+}
+.state-switch:hover{
+  background:var(--spruce);
+  color:var(--paper);
+}
 
 /* ---------- hero ---------- */
 .hero{
